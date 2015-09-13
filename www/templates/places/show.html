@@ -1,0 +1,76 @@
+<ion-view view-title="Details" class="l-place-details">
+<ion-content></ion-content>
+  <ion-tabs class="tabs-dark tabs-icon-top">
+
+    <ion-tab title="Details" icon-on="ion-ios-pint" icon-off="ion-ios-pint-outline">
+      <ion-scroll direction="y" class="place-detail">
+        <div class="top-padding"></div>
+        <ion-slide-box show-pager="true" does-continue="true" on-slide-changed="slideHasChanged($index)" ng-if="place.images.length > 0">
+          <ion-slide ng-repeat="image in place.images">
+            <div class="slide">
+              <img ng-src="{{::image}}" class="slide__image"/>
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+
+        <div class="tab-padding">
+          <h2>{{place.title}}</h2>
+          <h3>@{{place.place}}</h3>
+          <p>{{place.time_start | railsHours}} - {{place.time_end | railsHours}}</p>
+          <p class="days">{{place.days | mediumDays}}</p>
+          <p ng-bind-html="place.description" class="pre-style"></p>
+          <div class="top-padding"></div>
+        </div>
+      </ion-scroll>
+
+    </ion-tab>
+
+    <ion-tab title="Basics" icon-on="ion-ios-information" icon-off="ion-ios-information-outline">
+      <ion-scroll direction="y" class="place-basics">
+        <div class="top-padding"></div>
+        <ion-slide-box show-pager="true" does-continue="true" on-slide-changed="slideHasChanged($index)" ng-if="place.images.length > 0">
+          <ion-slide ng-repeat="image in place.images">
+            <div class="slide">
+              <img ng-src="{{::image}}" class="slide__image"/>
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+
+        <div class="tab-padding">
+          <h2>{{place.place}}</h2>
+          <h3>{{place.tasting_note}}</h3>
+        </div>
+        <div class="row box">
+          <div class="col col-50 border-right">
+            <p>{{place.address}}</p>
+            <p>{{place.phone_number}}</p>
+            <p ng-show="place.website">
+              <a ng-href="{{place.website}}" target="_blank">Visit website</a>
+            </p>
+          </div>
+
+          <div class="col col-50">
+            <div class="mini-title">Hours of operation: </div>
+            <ul>
+              <li ng-repeat="openDay in place.hours_of_operation">{{::openDay | mediumDays}}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="top-padding"></div>
+      </ion-scroll>
+
+    </ion-tab>
+
+
+
+    <ion-tab title="Map" icon-on="ion-android-map" icon-off="ion-map">
+      <div class="top-padding">
+        <app-map style="height:100%;width:100%;" center="placeLoc" zoom="15" markers="placeMarker" info="placeInfo">
+          <div id="map"></div>
+        </app-map>
+      </div>
+    </ion-tab>
+
+  </ion-tabs>
+</ion-view>

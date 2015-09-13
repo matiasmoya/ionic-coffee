@@ -1,0 +1,47 @@
+.l-search{
+  .padding-extra{
+    padding:30px;
+  }
+  .search-bar{
+    margin-bottom: 30px;
+  }
+  .item-radio .item-content {
+    padding: 0px;
+    background: none;
+  }
+
+  .button-bar .button {
+    min-height: 0;
+    line-height: 30px;
+  }
+  .button-bar > .item-radio.button {
+    padding: 0;
+  }
+  .item-radio input:checked ~ .item-content {
+    /* style the item content when its checked */
+    border-color: #145fd7;
+    background-color: #4a87ee;
+    color: white;
+  }
+
+  .item-radio .radio-icon {
+    display: none;
+  }
+
+  .button.button-positive.button-outline.active, .button.button-positive.button-outline.activated {
+    background-color: #4a87ee;
+    box-shadow: none;
+    color: #fff;
+  }
+
+  .card .item:last-child, .list-inset .item:last-child {
+    margin-bottom: 0;
+  }
+
+  .button-search {
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    border-radius: 4px;
+  }
+}

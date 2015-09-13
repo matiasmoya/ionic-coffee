@@ -1,0 +1,30 @@
+<ion-view view-title="Happy Hours" class="l-places" cache-view="false">
+  <ion-content>
+    <ion-list type="list-inset">
+      <div class="card" ng-if="places.length < 1">
+        <div class="item item-text-wrap text-center">
+          <img src="img/im-noresults.png" alt="no-results-found" class="img-center">
+          No results found. Please search again
+        </div>
+      </div>
+
+      <ion-item class="item-remove-animate item-thumbnail-left" ng-repeat="place in places" type="item-text-wrap" href="#/app/places/{{::place.id}}" ng-if="places.length > 0">
+        <img ng-src="{{::place.place_image_url}}">
+        <h2>{{::place.place_name}}</h2>
+        <h2>{{::place.title}}</h2>
+        <p>{{::place.days | shortDays }}</p>
+        <p>{{::place.time_start | railsHours}} - {{::place.time_end | railsHours}}</p>
+        <p ng-if="viewDistance">
+          <distance from="currentLocation" to="[place.location.lat, place.location.lon]"></distance>
+        </p>
+      </ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll
+      on-infinite="loadMore()"
+      distance="1%"
+      ng-if="!hideLoader"
+      >
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

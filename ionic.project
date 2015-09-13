@@ -1,0 +1,14 @@
+{
+  "name": "thny",
+  "app_id": "6498d0a3",
+  "gulpStartupTasks": [
+    "sass",
+    "coffee",
+    "replace",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

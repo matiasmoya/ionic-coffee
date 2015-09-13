@@ -1,0 +1,25 @@
+.l-place-details{
+  .slide{
+    height: 250px;
+    overflow: hidden;
+  }
+
+  .slide__image{
+    width: 100%;
+    min-height: 250px;
+  }
+
+  .top-padding {
+    padding-top: 42px;
+  }
+
+  #map{
+    width: 100%;
+    height: 100%;
+  }
+
+  .map-wrapper{
+    width: 100%;
+    height: 100%;
+  }
+}

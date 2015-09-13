@@ -1,0 +1,28 @@
+.place-basics{
+  h2, h3{
+    text-align: center;
+  }
+
+  h3{
+    font-size: 16px;
+    line-height: 24px;
+    white-space: pre-wrap;
+  }
+
+  .mini-title{
+    font-size: 16px;
+  }
+
+  .row.box{
+    border-top: 1px solid #C7C7C7;
+    border-bottom: 1px solid #C7C7C7;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .border-right{
+      border-right: 1px solid #C7C7C7;
+    }
+  }
+
+
+}

@@ -1,0 +1,92 @@
+<ion-view view-title="Search" class="l-search" cache-view="false">
+  <ion-content>
+    <div class=" padding-extra">
+      <div class="list button-bar">
+        <ion-radio ng-value="true"
+                   ng-model="search.params.current_location"
+                   ng-click="search.get_location()"
+                   ng-class="!search.params.current_location? 'button-dark':'button-assertive'"
+                   class="button button-outline">
+                   Use current location
+        </ion-radio>
+        <ion-radio ng-value="false"
+                   ng-model="search.params.current_location"
+                   ng-click="search.reset_location()"
+                   ng-class="search.params.current_location? 'button-dark':'button-assertive'"
+                   class="button button-outline">
+                   Select location
+        </ion-radio>
+      </div>
+      <div class="list cssSlideUp" ng-hide="search.params.current_location">
+        <fancy-select
+          header-text="Neighborhoods"
+          allow-empty="true"
+          value="search.params.in"
+          name="search.neighborhood_select_text"
+          items="search.neighborhoods">
+        </fancy-select>
+      </div>
+<!-- Search is disabled atm
+      <label class="item item-input search-bar">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="search" placeholder="Search">
+      </label>
+-->
+      <ul class="list">
+
+        <li ng-show="!search.params.current_location && search.params.in" class="item item-toggle">
+          Include nearby results
+          <label class="toggle toggle-assertive">
+            <input type="checkbox" ng-model="search.params.useDistance" ng-checked="search.params.useDistance">
+            <div class="track">
+              <div class="handle"></div>
+            </div>
+          </label>
+          <input ng-if="search.params.useDistance" type="hidden" ng-model="search.params.distance" ng-init="search.params.distance = 0.5">
+        </li>
+
+        <!--
+        <div ng-if="search.params.useDistance" class="item range range-positive">
+           <input type="range" ng-model="search.params.distance" ng-init="search.params.distance = search.params.distance || 0.1" min="0" step="0.05" max="1">
+           <span class="distance">
+             <span class="number">{{search.params.distance}}</span> Miles
+           </span>
+         </div>
+       -->
+
+        <li class="item item-toggle">
+           Today only
+           <label class="toggle toggle-assertive">
+             <input type="checkbox" ng-model="search.params.today">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+
+        <li class="item item-toggle">
+           With Food Deals
+           <label class="toggle toggle-assertive">
+             <input type="checkbox" ng-model="search.params.food">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+        <li class="item item-toggle">
+           With Oyster Deals
+           <label class="toggle toggle-assertive">
+             <input type="checkbox" ng-model="search.params.oysters">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+        </li>
+      </ul>
+
+      <button class="button button-large button-assertive button-search" ui-sref="app.places">
+        Let's Go!
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

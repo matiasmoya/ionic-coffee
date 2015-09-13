@@ -1,0 +1,24 @@
+<ion-view view-title="Sign In" class="l-users">
+  <ion-content>
+    <ion-list>
+      <div class="list list-inset">
+      <div class="card" ng-show="accounterrors">
+        <div class="item item-text-wrap">
+          Invalid credentials
+        </div>
+      </div>
+        <label class="item item-input">
+          <input type="text" placeholder="Email" ng-model="signin.user_email">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="Password" ng-model="signin.user_password">
+        </label>
+      </div>
+      <div class="padding">
+        <button class="button button-block button-assertive activated" type="button" ng-click="signin.submitForm()">
+          Sign in!
+        </button>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>
